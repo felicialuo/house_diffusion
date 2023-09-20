@@ -129,10 +129,10 @@ class RPlanhgDataset(Dataset):
                 a = [rms_type, rms_bbs, fp_eds, eds_to_rms]
                 self.subgraphs.append(a)
             for graph in tqdm(self.subgraphs):
-                rms_type = graph[0]
-                rms_bbs = graph[1]
-                fp_eds = graph[2]
-                eds_to_rms= graph[3]
+                rms_type = graph[0]     # "room_type"
+                rms_bbs = graph[1]      # "boxes"
+                fp_eds = graph[2]       # "edges"
+                eds_to_rms= graph[3]    # "ed_rm"
                 rms_bbs = np.array(rms_bbs)
                 fp_eds = np.array(fp_eds)
 
@@ -197,7 +197,12 @@ class RPlanhgDataset(Dataset):
                     num_room_corners = len(room[0])
                     rtype = np.repeat(np.array([get_one_hot(room[1], 25)]), num_room_corners, 0)
                     room_index = np.repeat(np.array([get_one_hot(len(house)+1, 32)]), num_room_corners, 0)
-                    corner_index = np.array([get_one_hot(x, 32) for x in range(num_room_corners)])
+                    corner_index = []
+                    for x in range(num_room_corners):
+                        try: row = get_one_hot(x, 32)
+                        except: row = np.zeros(32)
+                        corner_index.append(row)
+                    corner_index = np.array(corner_index)
                     # Src_key_padding_mask
                     padding_mask = np.repeat(1, num_room_corners)
                     padding_mask = np.expand_dims(padding_mask, 1)
@@ -469,8 +474,10 @@ class RPlanhgDataset(Dataset):
             rm_im = Image.new('L', (im_size, im_size))
             dr = ImageDraw.Draw(rm_im)
             for eds_poly in [eds]:
-                poly = self.make_sequence(np.array([fp_eds[l][:4] for l in eds_poly]))[0]
-                poly = [(im_size*x, im_size*y) for x, y in poly]
+                try:
+                    poly = self.make_sequence(np.array([fp_eds[l][:4] for l in eds_poly]))[0]
+                    poly = [(im_size*x, im_size*y) for x, y in poly]
+                except: pass
                 if len(poly) >= 2:
                     dr.polygon(poly, fill='white')
                 else:

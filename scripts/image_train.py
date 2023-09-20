@@ -2,6 +2,8 @@
 Train a diffusion model on images.
 """
 
+import sys
+sys.path.insert(1, '/home/felicia/Documents/house_diffusion')
 import argparse
 
 from house_diffusion import dist_util, logger
