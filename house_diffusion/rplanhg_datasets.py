@@ -267,7 +267,14 @@ class RPlanhgDataset(Dataset):
                         num_room_corners = num_room_corners_total[i]
                         rtype = np.repeat(np.array([get_one_hot(room[1], 25)]), num_room_corners, 0)
                         room_index = np.repeat(np.array([get_one_hot(len(house)+1, 32)]), num_room_corners, 0)
-                        corner_index = np.array([get_one_hot(x, 32) for x in range(num_room_corners)])
+                        corner_index = []
+                        for x in range(num_room_corners):
+                            try:
+                                row = get_one_hot(x, 32)
+                            except: 
+                                corner_index = np.zeros(32)
+                            corner_index.append(row)
+                        corner_index = np.array(corner_index)
                         # Src_key_padding_mask
                         padding_mask = np.repeat(1, num_room_corners)
                         padding_mask = np.expand_dims(padding_mask, 1)
