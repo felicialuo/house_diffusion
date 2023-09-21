@@ -34,8 +34,10 @@ house_diffusion
 └── scripts
 └── ...
 ```
-This is a time-consuming step. Mine took about 3 days. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.\n
-<img src='figs/preprocessing_results.png' width=50%>
+This is a time-consuming step. Mine took about 3 days. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.  
+
+<img src='figs/preprocessing_results.png' width=50%>  
+
 After creating .json files, open `scripts/generate_list.py`, modify path to your rplan folder that contains all the .json files. And then run the file. This will generate a list.txt required for dataloader.
 
 - We have provided a temporary model that you can download from [Google Drive](https://drive.google.com/file/d/16zKmtxwY5lF6JE-CJGkRf3-OFoD1TrdR/view?usp=share_link). 
