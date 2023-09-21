@@ -34,7 +34,7 @@ house_diffusion
 └── scripts
 └── ...
 ```
-This is a time-consuming step. Mine took about 3 days. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.  
+This is a time-consuming step. Mine took about 3 days to process the entire Rplan dataset (80k) and got 76k processed .json file. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.  
 
 <img src='figs/preprocessing_results.png' width=50%>  
 
