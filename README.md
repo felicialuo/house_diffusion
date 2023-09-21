@@ -1,5 +1,5 @@
 # HouseDiffusion
-This is my reproduction of HouseDiffusion. The following instructions have been modified for my implementation.
+This is my reproduction of HouseDiffusion. The following instructions have been modified for my implementation.  
 My system specs: AMD® Ryzen 9 7900x & NVIDIA GeForce RTX 3090 Ti & Ubuntu 22.04.3 LTS.
 
 **[HouseDiffusion: Vector Floorplan Generation via a Diffusion Model with Discrete and Continuous Denoising](https://arxiv.org/abs/2211.13287)**
@@ -34,10 +34,8 @@ house_diffusion
 └── scripts
 └── ...
 ```
-This is a time-consuming step. Mine took about 3 days to process the entire Rplan dataset (80k 256x256 .png files) and got 76k processed .json files. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.  
-
+This is a time-consuming step. Mine took about 3 days to process the entire Rplan dataset (80k 256x256 .png files) and got 76k processed .json files. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.    
 <img src='figs/preprocessing_results.png' width=50%>  
-
 After creating .json files, open `scripts/generate_list.py`, modify path to your rplan folder that contains all the .json files. And then run the file. This will generate a list.txt required for dataloader.
 
 - We have provided a temporary model that you can download from [Google Drive](https://drive.google.com/file/d/16zKmtxwY5lF6JE-CJGkRf3-OFoD1TrdR/view?usp=share_link). 
