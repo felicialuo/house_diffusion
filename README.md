@@ -8,13 +8,10 @@ My system specs: AMD® Ryzen 9 7900x & NVIDIA GeForce RTX 3090 Ti & Ubuntu 22.04
 ## Installation
 **1. Clone our repo and install the requirements:**
 
-Our implementation is based on the public implementation of [guided-diffusion](https://github.com/openai/guided-diffusion). For installation instructions, please refer to their repository. Keep in mind that our current version has not been cleaned and some features from the original repository may not function correctly.
-
+Our implementation is based on the public implementation of [guided-diffusion](https://github.com/openai/guided-diffusion). For installation instructions, please refer to their repository. Keep in mind that our current version has not been cleaned and some features from the original repository may not function correctly.  
+For my reproduction, I set up a conda environment tested on Ubuntu 22.04.3 LTS. Use this new environment.yml:
 ```
-git clone https://github.com/aminshabani/house_diffusion.git
-cd house_diffusion
-pip install -r requirements.txt
-pip install -e .
+conda env create -f environment.yml
 ```
 **2. Download the dataset and create the datasets directory**
 
