@@ -34,7 +34,7 @@ house_diffusion
 └── scripts
 └── ...
 ```
-This is a time-consuming step. Mine took about 3 days. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.
+This is a time-consuming step. Mine took about 3 days. For future steps, reviewing and editing the generated graph will be desired to correct missing edges, as shown below.\n
 <img src='figs/preprocessing_results.png' width=50%>
 After creating .json files, open `scripts/generate_list.py`, modify path to your rplan folder that contains all the .json files. And then run the file. This will generate a list.txt required for dataloader.
 
@@ -68,7 +68,7 @@ If you have never trained a model and do not have .npz files corresponding to yo
 **3. Reproduction results**
 I trained for 1.12M steps, which took 20 hours using a NVIDIA GeForce RTX 3090 Ti. Loading checkpoint model1120000.pt and sampling on target_set 8, here is a sample of the results:
 <img src='figs/reproduction_results.png' width=100%>
-Unfortunately, I couldn't compute the FID value due to an error. Predictions of this sample showed that the many generated floor plans have empty spaces between rooms, and some rooms might have unreasonable corners.
+Unfortunately, I couldn't compute the FID value due to an error. Predictions of this sample showed that the many generated floor plans have empty spaces between rooms, and some rooms might have unreasonable corners. Note that this model only uses the program graph as input, not the building boundary. Therefore, the predictions usually have different boundaries from the ground truth.
 
 ## Citation
 
