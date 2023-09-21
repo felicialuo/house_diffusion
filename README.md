@@ -12,6 +12,7 @@ My system specs: AMD® Ryzen 9 7900x & NVIDIA GeForce RTX 3090 Ti & Ubuntu 22.04
 - For my reproduction, I set up a conda environment tested on Ubuntu 22.04.3 LTS. Use this new environment.yml:
 ```
 conda env create -f environment.yml
+conda activate house_diffusion
 ```
 **2. Download the dataset and create the datasets directory**
 
